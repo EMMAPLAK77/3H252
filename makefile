@@ -1,4 +1,6 @@
-bin/ejemplo : src/ejemplo.cpp
-	./bin/ejemplo	
-bin/ejemplo : src/ejemplo.cpp
-	c++ src/ejemplo.cpp -o bin/ejemplo -lftxui-screen
+run : bin/animacion
+	./bin/animacion
+
+bin/animacion : src/animacion.cpp include/*.hpp
+	@mkdir -p bin
+	g++ -Iinclude -o bin/animacion src/animacion.cpp -lftxui-component -lftxui-dom -lftxui-screen
